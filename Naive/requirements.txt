@@ -1,0 +1,4 @@
+google-genai>=1.10.0
+pymongo>=4.8.0
+python-dotenv>=1.0.1
+certifi>=2024.8.30

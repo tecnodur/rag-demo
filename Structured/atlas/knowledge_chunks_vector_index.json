@@ -1,0 +1,38 @@
+{
+  "name": "knowledge_chunks_vector_index",
+  "type": "vectorSearch",
+  "definition": {
+    "fields": [
+      {
+        "type": "vector",
+        "path": "embedding",
+        "numDimensions": 3072,
+        "similarity": "cosine"
+      },
+      {
+        "type": "filter",
+        "path": "region"
+      },
+      {
+        "type": "filter",
+        "path": "status"
+      },
+      {
+        "type": "filter",
+        "path": "doc_type"
+      },
+      {
+        "type": "filter",
+        "path": "version"
+      },
+      {
+        "type": "filter",
+        "path": "effective_date"
+      },
+      {
+        "type": "filter",
+        "path": "parent_document_id"
+      }
+    ]
+  }
+}
