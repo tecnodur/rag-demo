@@ -17,8 +17,8 @@ It is to show that knowledge architecture changes answer quality even when the o
 
 ## Repository Structure
 
-- [Naive](/home/rud/Documents/Naive): a metadata-blind RAG pipeline
-- [Structured](/home/rud/Documents/Structured): a metadata-aware RAG pipeline
+- [Naive](https://github.com/tecnodur/rag-demo/tree/main/Naive): a metadata-blind RAG pipeline
+- [Structured](https://github.com/tecnodur/rag-demo/tree/main/Naive): a metadata-aware RAG pipeline
 
 Each folder contains:
 
@@ -86,8 +86,8 @@ python3 scripts/run_demo.py
 
 Presentation notes:
 
-- [Naive/DEMO_GUIDE.md](/home/rud/Documents/Naive/DEMO_GUIDE.md)
-- [Naive/README.md](/home/rud/Documents/Naive/README.md)
+- [Naive/DEMO_GUIDE.md](https://github.com/tecnodur/rag-demo/blob/main/Naive/DEMO_GUIDE.md)
+- [Naive/README.md](https://github.com/tecnodur/rag-demo/blob/main/Naive/README.md)
 
 ### Structured
 
@@ -99,8 +99,8 @@ python3 scripts/run_demo.py --region EU --status Active --doc-type policy
 
 Presentation notes:
 
-- [Structured/DEMO_GUIDE.md](/home/rud/Documents/Structured/DEMO_GUIDE.md)
-- [Structured/README.md](/home/rud/Documents/Structured/README.md)
+- [Structured/DEMO_GUIDE.md](https://github.com/tecnodur/rag-demo/blob/main/Structured/DEMO_GUIDE.md)
+- [Structured/README.md](https://github.com/tecnodur/rag-demo/blob/main/Structured/README.md)
 
 ## Suggested Presentation Flow
 
