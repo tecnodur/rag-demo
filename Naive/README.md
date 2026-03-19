@@ -72,13 +72,13 @@ What it does:
 - Creates deterministic overlapping chunks from the normalized body.
 - Generates Gemini embeddings for each chunk.
 - Stores chunk embeddings and inherited metadata in `knowledge_chunks`.
-- Rewrites [atlas/knowledge_chunks_vector_index.json](/home/rud/Documents/MongoDB/atlas/knowledge_chunks_vector_index.json) with the actual embedding dimensions detected from the first generated embedding.
+- Rewrites [atlas/knowledge_chunks_vector_index.json]( /atlas/knowledge_chunks_vector_index.json) with the actual embedding dimensions detected from the first generated embedding.
 
 ## Atlas Vector Index
 
 The vector index definition file is:
 
-[atlas/knowledge_chunks_vector_index.json](/home/rud/Documents/MongoDB/atlas/knowledge_chunks_vector_index.json)
+[atlas/knowledge_chunks_vector_index.json]( /atlas/knowledge_chunks_vector_index.json)
 
 The ingestion script updates `numDimensions` in that file after embeddings are generated. Apply the index in Atlas manually:
 
@@ -88,7 +88,7 @@ The ingestion script updates `numDimensions` in that file after embeddings are g
 4. Open the Search or Atlas Search tab.
 5. Create a new Vector Search index.
 6. Use JSON editor mode.
-7. Paste the contents of [atlas/knowledge_chunks_vector_index.json](/home/rud/Documents/MongoDB/atlas/knowledge_chunks_vector_index.json).
+7. Paste the contents of [atlas/knowledge_chunks_vector_index.json]( /atlas/knowledge_chunks_vector_index.json).
 8. Save the index using the name in `VECTOR_INDEX_NAME`.
 
 Manual Atlas step is required because Atlas Search index creation is operationally sensitive and varies by cluster permissions and Atlas version.
@@ -144,7 +144,7 @@ Naive retrieval:
 - Embeds the user question.
 - Runs Atlas `$vectorSearch` with no metadata filters.
 
-This is the presentation point: same data and model family, but a metadata-blind knowledge architecture can select the wrong source text.
+This is the demo point: same data and model family, but a metadata-blind knowledge architecture can select the wrong source text.
 
 ## Troubleshooting
 

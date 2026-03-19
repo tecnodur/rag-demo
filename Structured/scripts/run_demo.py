@@ -26,12 +26,12 @@ def choose_question(default_question: str | None) -> str:
     if default_question:
         return default_question
 
-    print("Choose a question to test:")
+    print("\nChoose a question to test:")
     for index, question in enumerate(QUESTION_OPTIONS, start=1):
         print(f"  {index}. {question}")
 
     while True:
-        raw_choice = input("Selection: ").strip()
+        raw_choice = input("\nSelection: ").strip()
         try:
             choice = int(raw_choice)
         except ValueError:
@@ -112,7 +112,7 @@ def main() -> None:
         model_name=settings.gemini_model,
     )
 
-    print(f"Question: {question}")
+    print(f"\nQuestion: {question}")
     print("Structured filters: " f"region={args.region}, status={args.status}, doc_type={args.doc_type}")
 
     structured_hits = retrieve_structured(

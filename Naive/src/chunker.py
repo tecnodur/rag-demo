@@ -78,15 +78,6 @@ def build_chunk_documents(
                 "title": source_document["title"],
                 "chunk_text": chunk_text_value,
                 "chunk_index": index,
-                "region": source_document["region"],
-                "status": source_document["status"],
-                "version": source_document["version"],
-                "effective_date": source_document["effective_date"],
-                "owner_team": source_document["owner_team"],
-                "audience": source_document["audience"],
-                "doc_type": source_document["doc_type"],
-                "tags": source_document["tags"],
-                "short_description": source_document["short_description"],
             }
         )
     return documents

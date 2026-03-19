@@ -62,15 +62,6 @@ def load_source_documents(source_docs_dir: Path) -> list[SourceDocument]:
             "document_id": path.stem,
             "source_file": path.name,
             "title": title,
-            "region": None,
-            "status": None,
-            "version": None,
-            "effective_date": None,
-            "owner_team": None,
-            "audience": None,
-            "doc_type": None,
-            "tags": [],
-            "short_description": "",
         }
 
         source_documents.append(
