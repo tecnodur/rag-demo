@@ -58,6 +58,7 @@ def ingest_documents(
     settings: Settings,
     *,
     exclude_source_files: set[str] | None = None,
+    clear_existing: bool = False,
 ) -> dict[str, Any]:
     print(f"Loading source documents from {settings.source_docs_dir} ...")
     source_documents = load_source_documents(settings.source_docs_dir)
@@ -132,8 +133,13 @@ def _ingest_knowledge_items(
     source_files = [item["source_file"] for item in knowledge_items]
     document_ids = [item["document_id"] for item in knowledge_items]
 
-    print("Upserting source documents into MongoDB Atlas ...")
-    items_collection.delete_many({"source_file": {"$in": source_files}})
+    if clear_existing:
+        print("Clearing existing source and chunk collections ...")
+        items_collection.delete_many({})
+        chunks_collection.delete_many({})
+    else:
+        print("Upserting source documents into MongoDB Atlas ...")
+        items_collection.delete_many({"source_file": {"$in": source_files}})
     item_ops = [
         UpdateOne({"document_id": item["document_id"]}, {"$set": item}, upsert=True)
         for item in knowledge_items
@@ -141,8 +147,11 @@ def _ingest_knowledge_items(
     if item_ops:
         items_collection.bulk_write(item_ops, ordered=False)
 
-    print("Replacing chunk documents for the current source set ...")
-    chunks_collection.delete_many({"parent_document_id": {"$in": document_ids}})
+    if clear_existing:
+        print("Writing chunk documents to cleared collection ...")
+    else:
+        print("Replacing chunk documents for the current source set ...")
+        chunks_collection.delete_many({"parent_document_id": {"$in": document_ids}})
     chunk_ops = [
         UpdateOne({"chunk_id": chunk["chunk_id"]}, {"$set": chunk}, upsert=True)
         for chunk in chunk_documents

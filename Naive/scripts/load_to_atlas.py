@@ -22,6 +22,14 @@ def parse_args() -> argparse.Namespace:
             "(repeat flag to exclude multiple files)."
         ),
     )
+    parser.add_argument(
+        "--keep-existing",
+        action="store_true",
+        help=(
+            "Keep existing Atlas documents and only replace records for the current "
+            "source set. By default, collections are cleared before ingestion."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -32,7 +40,12 @@ def main() -> None:
 
     settings = get_settings()
     excluded_files = set(args.exclude_source_file)
-    result = ingest_documents(settings, exclude_source_files=excluded_files)
+    clear_existing = not args.keep_existing
+    result = ingest_documents(
+        settings,
+        exclude_source_files=excluded_files,
+        clear_existing=clear_existing,
+    )
     print("\nSummary")
     print(f"- Source documents ingested: {result['source_documents']}")
     print(f"- Chunk documents ingested: {result['chunks']}")
@@ -43,6 +56,7 @@ def main() -> None:
     )
     if excluded_files:
         print(f"- Excluded source files: {', '.join(sorted(excluded_files))}")
+    print(f"- Cleared existing records first: {clear_existing}")
 
 
 if __name__ == "__main__":
