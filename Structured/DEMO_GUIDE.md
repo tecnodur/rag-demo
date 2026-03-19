@@ -1,12 +1,12 @@
 # Structured RAG Demo Guide
 
-Use this file as a quick follow-along for the `Structured` demo. For the full explanation of the approach, see [README.md](/home/rud/Documents/Structured/README.md).
+Use this file as a quick follow-along for the `Structured` demo. For the full explanation of the approach, see [README.md](README.md).
 
 ## 1. Check The Metadata Layer
 
-- Open [data/source_docs/metadata_manifest.json](/home/rud/Documents/Structured/data/source_docs/metadata_manifest.json).
+- Open [data/source_docs/metadata_manifest.json](data/source_docs/metadata_manifest.json).
 - Check fields such as `region`, `status`, `version`, `effective_date`, and `doc_type`.
-- Open [password_policy_v3_EU_active.md](/home/rud/Documents/Structured/data/source_docs/password_policy_v3_EU_active.md) and check the metadata block at the top.
+- Open [password_policy_v3_EU_active.md](data/source_docs/password_policy_v3_EU_active.md) and check the metadata block at the top.
 
 What this means:
 
@@ -15,9 +15,9 @@ What this means:
 
 ## 2. Check Validation And Chunking
 
-- Open [src/utils.py](/home/rud/Documents/Structured/src/utils.py) and check that metadata is parsed and validated.
-- Open [src/chunker.py](/home/rud/Documents/Structured/src/chunker.py) and check that chunk records inherit metadata fields.
-- Open [src/ingest.py](/home/rud/Documents/Structured/src/ingest.py) and check that the vector index definition includes filter fields.
+- Open [src/utils.py](src/utils.py) and check that metadata is parsed and validated.
+- Open [src/chunker.py](src/chunker.py) and check that chunk records inherit metadata fields.
+- Open [src/ingest.py](src/ingest.py) and check that the vector index definition includes filter fields.
 
 What this means:
 
@@ -26,7 +26,7 @@ What this means:
 
 ## 3. Check The Retrieval Logic
 
-- Open [src/retrieval.py](/home/rud/Documents/Structured/src/retrieval.py).
+- Open [src/retrieval.py](src/retrieval.py).
 - Check the metadata filter construction.
 - Check the logic that prefers the latest valid version.
 
@@ -53,7 +53,7 @@ What to look for:
 
 ## 6. Final Check
 
-- Reopen [src/retrieval.py](/home/rud/Documents/Structured/src/retrieval.py).
+- Reopen [src/retrieval.py](src/retrieval.py).
 - Confirm that the solution combines vector similarity with metadata-aware retrieval.
 
 ## Summary

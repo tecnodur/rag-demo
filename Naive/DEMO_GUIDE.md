@@ -1,11 +1,11 @@
 # Naive RAG Demo Guide
 
-Use this file as a quick follow-along for the `Naive` demo. For the full explanation of the approach, see [README.md](/home/rud/Documents/Naive/README.md).
+Use this file as a quick follow-along for the `Naive` demo. For the full explanation of the approach, see [README.md](README.md).
 
 ## 1. Check The Data Shape
 
-- Open [src/utils.py](/home/rud/Documents/Naive/src/utils.py) and check that only `document_id`, `source_file`, and `title` are derived.
-- Open [src/chunker.py](/home/rud/Documents/Naive/src/chunker.py) and check that chunk records contain text and identifiers only.
+- Open [src/utils.py](src/utils.py) and check that only `document_id`, `source_file`, and `title` are derived.
+- Open [src/chunker.py](src/chunker.py) and check that chunk records contain text and identifiers only.
 
 What this means:
 
@@ -14,7 +14,7 @@ What this means:
 
 ## 2. Check The Retrieval Logic
 
-- Open [src/retrieval.py](/home/rud/Documents/Naive/src/retrieval.py) and check that retrieval uses `$vectorSearch` only.
+- Open [src/retrieval.py](src/retrieval.py) and check that retrieval uses `$vectorSearch` only.
 - Check that there are no metadata filters.
 - Check that there is no version-selection logic.
 
@@ -41,7 +41,7 @@ What to look for:
 
 ## 5. Final Check
 
-- Reopen [src/retrieval.py](/home/rud/Documents/Naive/src/retrieval.py).
+- Reopen [src/retrieval.py](src/retrieval.py).
 - Confirm that the solution relies on vector similarity only.
 
 ## Summary
