@@ -81,12 +81,14 @@ def ingest_documents(
         raise RuntimeError("No source documents remain after exclusions")
 
     knowledge_items = [build_knowledge_item(source_document) for source_document in source_documents]
-    return _ingest_knowledge_items(settings, knowledge_items)
+    return _ingest_knowledge_items(settings, knowledge_items, clear_existing=clear_existing)
 
 
 def _ingest_knowledge_items(
     settings: Settings,
     knowledge_items: list[dict[str, Any]],
+    *,
+    clear_existing: bool,
 ) -> dict[str, Any]:
     chunk_documents: list[dict[str, Any]] = []
     for item in knowledge_items:
